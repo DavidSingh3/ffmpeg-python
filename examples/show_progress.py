@@ -108,7 +108,7 @@ def show_progress(total_duration):
             yield socket_filename
 
 
-if __name__ == '__main__':
+def main():
     args = parser.parse_args()
     total_duration = float(ffmpeg.probe(args.in_filename)['format']['duration'])
 
@@ -127,4 +127,7 @@ if __name__ == '__main__':
         except ffmpeg.Error as e:
             print(e.stderr, file=sys.stderr)
             sys.exit(1)
+
+if __name__ == '__main__':
+    main()
 
